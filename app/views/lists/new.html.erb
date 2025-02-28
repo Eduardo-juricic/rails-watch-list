@@ -1,0 +1,12 @@
+<h1>Criar uma Nova Lista</h1>
+
+<%= form_with model: @list, url: lists_path, local: true do |form| %>
+  <div class="form-group">
+    <%= form.label :name, "Nome da Lista" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <%= form.submit "Criar Lista", class: "btn btn-success" %>
+<% end %>
+
+<%= link_to "Voltar", lists_path, class: "btn btn-secondary" %>
