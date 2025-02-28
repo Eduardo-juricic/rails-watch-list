@@ -1,12 +1,20 @@
-<h1>Criar uma Nova Lista</h1>
+<div class="container-fluid d-flex justify-content-center align-items-center min-vh-100" style="background-color:rgb(50, 144, 226);">
+  <div class="col-md-6 p-4 border rounded shadow-lg bg-white">
+    <h1 class="text-center mb-4">Criar uma Nova Lista</h1>
 
-<%= form_with model: @list, url: lists_path, local: true do |form| %>
-  <div class="form-group">
-    <%= form.label :name, "Nome da Lista" %>
-    <%= form.text_field :name, class: "form-control" %>
+    <p class="lead text-center mb-4">Dê um nome à sua lista de filmes e clique em "Criar Lista" para salvar.</p>
+
+    <%= form_with model: @list, url: lists_path, local: true do |form| %>
+      <div class="form-group">
+        <%= form.label :name, "Nome da Lista", class: "form-label" %>
+        <%= form.text_field :name, class: "form-control mb-4", placeholder: "Digite o nome da lista" %>
+
+
+      <%= form.submit "Criar Lista", class: "btn btn-success btn-lg w-100 mb-3" %>
+    <% end %>
+
+    <div class="text-center">
+      <%= link_to "Voltar", lists_path, class: "btn btn-secondary btn-lg w-100" %>
+    </div>
   </div>
-
-  <%= form.submit "Criar Lista", class: "btn btn-success" %>
-<% end %>
-
-<%= link_to "Voltar", lists_path, class: "btn btn-secondary" %>
+</div>
