@@ -22,7 +22,10 @@
           <h2><%= bookmark.movie.title %></h2>
           <p><%= bookmark.comment %></p>
         </div>
-        <div class="card-product-footer">
+        <div class="card-product-footer d-flex justify-content-between">
+          <a href="<%= bookmark.movie.streaming %>" class="btn btn-info btn-sm butao" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-tv"></i> <%= bookmark.movie.streaming %>
+          </a>
           <%= link_to "Remover", bookmark_path(bookmark),
             data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove?" },
             class: "btn btn-danger btn-sm butao" %>
@@ -30,5 +33,4 @@
       </div>
     </div>
   <% end %>
-</div>
 </div>

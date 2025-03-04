@@ -1,15 +1,20 @@
-<h1>Adicionar Filme à Lista "<%= @list.name %>"</h1>
+<h1 class="mb-4 text-center">Adicionar Filme à Lista "<%= @list.name %>"</h1>
 
-<%= simple_form_for [@list, @bookmark] do |f| %>
-  <div class="form-group">
-    <%= f.association :movie, collection: Movie.all, prompt: "Escolha um filme" %>
-  </div>
+<div class="card shadow-sm p-4">
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <div class="mb-3">
+      <%= f.association :movie, collection: Movie.all, prompt: "Escolha um filme",
+        label: false, input_html: { class: "form-select" } %>
+    </div>
 
-  <div class="form-group">
-    <%= f.input :comment, label: "Comentário" %>
-  </div>
+    <div class="mb-3">
+      <%= f.input :comment, label: "Comentário",
+        input_html: { class: "form-control", placeholder: "Adicione um comentário..." } %>
+    </div>
 
-  <%= f.submit "Adicionar Filme", class: "btn btn-primary" %>
-<% end %>
-
-<%= link_to "Voltar", list_path(@list), class: "btn btn-secondary" %>
+    <div class="d-flex justify-content-between">
+      <%= link_to "Voltar", list_path(@list), class: "btn btn-secondary" %>
+      <%= f.submit "Adicionar Filme", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
